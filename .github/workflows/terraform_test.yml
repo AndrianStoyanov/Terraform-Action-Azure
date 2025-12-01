@@ -1,9 +1,10 @@
 name: 'Terraform and test'
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
+  workflow_run:
+    workflows: ["Terraform plan and apply"]
+    types:
+      - completed
 
 jobs:
   terraform_test:
