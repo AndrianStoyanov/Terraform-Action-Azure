@@ -9,6 +9,12 @@ terraform {
       version = "3.7.2"
     }
   }
+  backend "azurerm" {
+    resource_group_name  = "StorageStateRG"
+    storage_account_name = "andrianterraformstate"
+    container_name       = "tfstatecontainer"
+    key                  = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
